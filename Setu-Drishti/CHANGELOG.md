@@ -8,3 +8,5 @@
 - CORS configured for all origins
 
 - Patient vitals schema added
+
+- simulator.py with 4 patient scenarios
