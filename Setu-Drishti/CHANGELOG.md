@@ -6,3 +6,5 @@
 - Added requirements.txt with FastAPI, uvicorn
 
 - CORS configured for all origins
+
+- Patient vitals schema added
