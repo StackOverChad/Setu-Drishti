@@ -10,3 +10,5 @@
 - Patient vitals schema added
 
 - simulator.py with 4 patient scenarios
+
+- clinical_severity_score() implemented
