@@ -14,3 +14,5 @@
 - clinical_severity_score() implemented
 
 - xgb_model.pkl integrated for predictions
+
+- deterioration model router added (late night session)
