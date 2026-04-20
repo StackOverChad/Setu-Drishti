@@ -12,3 +12,5 @@
 - simulator.py with 4 patient scenarios
 
 - clinical_severity_score() implemented
+
+- xgb_model.pkl integrated for predictions
