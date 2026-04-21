@@ -20,3 +20,5 @@
 - SHAP TreeExplainer integrated
 
 - SentinelIQ endpoint created
+
+- ToneScore NLP urgency added
