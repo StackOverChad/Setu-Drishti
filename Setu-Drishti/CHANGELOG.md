@@ -18,3 +18,5 @@
 - deterioration model router added (late night session)
 
 - SHAP TreeExplainer integrated
+
+- SentinelIQ endpoint created
