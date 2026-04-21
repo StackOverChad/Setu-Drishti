@@ -16,3 +16,5 @@
 - xgb_model.pkl integrated for predictions
 
 - deterioration model router added (late night session)
+
+- SHAP TreeExplainer integrated
