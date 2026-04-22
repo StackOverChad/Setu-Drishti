@@ -22,3 +22,5 @@
 - SentinelIQ endpoint created
 
 - ToneScore NLP urgency added
+
+- TrialBridge and PopulationPulse routes done
