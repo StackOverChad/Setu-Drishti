@@ -34,3 +34,5 @@
 - Expo React Native app created
 
 - AR Lens with expo-camera
+
+- Mobile components for OmniMed
