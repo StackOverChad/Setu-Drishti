@@ -26,3 +26,5 @@
 - TrialBridge and PopulationPulse routes done
 
 - Vite project scaffolded
+
+- Dashboard.jsx with live vitals polling
