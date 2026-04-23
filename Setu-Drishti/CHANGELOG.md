@@ -24,3 +24,5 @@
 - ToneScore NLP urgency added
 
 - TrialBridge and PopulationPulse routes done
+
+- Vite project scaffolded
