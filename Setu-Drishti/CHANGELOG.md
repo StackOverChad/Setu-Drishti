@@ -28,3 +28,5 @@
 - Vite project scaffolded
 
 - Dashboard.jsx with live vitals polling
+
+- Omnimed tabs added to UI
