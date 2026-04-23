@@ -30,3 +30,5 @@
 - Dashboard.jsx with live vitals polling
 
 - Omnimed tabs added to UI
+
+- Expo React Native app created
