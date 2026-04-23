@@ -32,3 +32,5 @@
 - Omnimed tabs added to UI
 
 - Expo React Native app created
+
+- AR Lens with expo-camera
