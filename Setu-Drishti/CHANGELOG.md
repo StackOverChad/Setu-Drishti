@@ -38,3 +38,5 @@
 - Mobile components for OmniMed
 
 - Twilio SMS integration
+
+- Gemini AI briefing generated
