@@ -40,3 +40,5 @@
 - Twilio SMS integration
 
 - Gemini AI briefing generated
+
+- Deployment config finalized
