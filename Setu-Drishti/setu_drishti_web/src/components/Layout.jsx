@@ -1,7 +1,6 @@
 import React from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Activity, BarChart, Settings as SettingsIcon, LogOut, Sun, Moon } from 'lucide-react';
-import { UserButton } from '@clerk/clerk-react';
 import { useTheme } from '../hooks/useApp';
 
 export default function Layout({ mockupAuth }) {
@@ -64,21 +63,15 @@ export default function Layout({ mockupAuth }) {
 
         <div className="p-4 border-t border-gray-200 dark:border-gray-800 flex flex-col gap-4 bg-gray-50 dark:bg-[#0a0f18]">
           <div className="flex items-center gap-3">
-            {mockupAuth ? (
-               <div className="w-8 h-8 rounded-full bg-cyan-900 flex items-center justify-center text-cyan-400 font-bold border border-cyan-700">DR</div>
-            ) : (
-               <UserButton afterSignOutUrl="/" appearance={{ elements: { userButtonAvatarBox: "w-8 h-8" } }} />
-            )}
+            <div className="w-8 h-8 rounded-full bg-cyan-900 flex items-center justify-center text-cyan-400 font-bold border border-cyan-700">DR</div>
             <div className="flex flex-col">
                <span className="text-xs font-bold text-gray-800 dark:text-gray-300">Dr. Sarah Jenkins</span>
                <span className="text-[10px] text-gray-500 uppercase tracking-widest">Attending ICU</span>
             </div>
           </div>
-          {mockupAuth && (
-            <button onClick={() => window.location.href='/'} className="flex flex-1 items-center justify-center gap-2 text-xs text-red-500 hover:text-red-400 uppercase tracking-widest p-2 rounded hover:bg-red-950/30 transition-colors text-left font-bold border border-transparent hover:border-red-900 hover:shadow-[0_0_10px_rgba(239,68,68,0.2)]">
-              <LogOut size={14} /> Leave Demo
-            </button>
-          )}
+          <button onClick={() => window.location.href='/'} className="flex flex-1 items-center justify-center gap-2 text-xs text-red-500 hover:text-red-400 uppercase tracking-widest p-2 rounded hover:bg-red-950/30 transition-colors text-left font-bold border border-transparent hover:border-red-900 hover:shadow-[0_0_10px_rgba(239,68,68,0.2)]">
+            <LogOut size={14} /> Leave Demo
+          </button>
           <button onClick={toggle} className="flex items-center justify-center gap-2 text-xs text-cyan-600 dark:text-cyan-500 hover:text-cyan-700 dark:hover:text-cyan-400 uppercase tracking-widest p-2 rounded hover:bg-cyan-100 dark:hover:bg-cyan-950/30 transition-colors w-full text-center font-bold border border-cyan-200 dark:border-cyan-900 shadow-sm">
             {theme === 'dark' ? <Sun size={14} /> : <Moon size={14} />} {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
           </button>

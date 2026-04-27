@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { SignIn, SignedOut, SignedIn } from '@clerk/clerk-react';
 import { Activity, ShieldAlert, Zap, Brain, ClipboardList, MapPin, Lock, ArrowRight, Scan, Monitor, HeartPulse } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -219,7 +218,6 @@ export default function Landing({ mockupAuth }) {
           <div style={{ ...glassCard({ padding: '28px', background: 'rgba(255,255,255,0.92)', boxShadow: '0 20px 60px rgba(0,0,0,0.08)' }) }}>
             <div style={{ height: '3px', background: 'linear-gradient(90deg, #0ea5e9, #7c3aed)', borderRadius: '3px', marginBottom: '22px' }} />
 
-            {mockupAuth ? (
               <>
                 <div style={{ textAlign: 'center', marginBottom: '22px' }}>
                   <div style={{ width: '52px', height: '52px', borderRadius: '50%', background: 'linear-gradient(135deg, #0ea5e9, #7c3aed)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px', boxShadow: '0 6px 20px rgba(14,165,233,0.35)' }}>
@@ -237,41 +235,9 @@ export default function Landing({ mockupAuth }) {
                   </Link>
                 </div>
                 <p style={{ textAlign: 'center', fontSize: '10px', color: '#d1d5db', marginTop: '16px' }}>
-                  Set VITE_CLERK_PUBLISHABLE_KEY in .env to enable real auth.
+                  Bypassed authentication for hackathon evaluation.
                 </p>
               </>
-            ) : (
-              <>
-                <SignedOut>
-                  <h3 style={{ textAlign: 'center', marginBottom: '6px', color: '#0f172a', fontSize: '17px', fontWeight: 700 }}>Physician Portal</h3>
-                  <p style={{ textAlign: 'center', fontSize: '11px', color: '#9ca3af', marginBottom: '20px', letterSpacing: '0.5px' }}>Sign in to access your secure ICU dashboard.</p>
-                  <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <SignIn routing="path" path="/" appearance={{
-                      elements: {
-                        card: 'bg-transparent shadow-none border-none',
-                        formButtonPrimary: 'bg-sky-600 hover:bg-sky-500 tracking-widest uppercase font-bold',
-                        headerTitle: 'text-gray-900',
-                        formFieldInput: 'bg-gray-50 border-gray-200 text-gray-900',
-                        formFieldLabel: 'text-gray-700',
-                        footerActionLink: 'text-sky-600',
-                      }
-                    }} />
-                  </div>
-                </SignedOut>
-                <SignedIn>
-                  <div style={{ textAlign: 'center' }}>
-                    <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(34,197,94,0.1)', border: '2px solid rgba(34,197,94,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 14px' }}>
-                      <ShieldAlert size={28} style={{ color: '#16a34a' }} />
-                    </div>
-                    <h3 style={{ color: '#0f172a', marginBottom: '6px', fontWeight: 700 }}>Authentication Verified</h3>
-                    <p style={{ color: '#9ca3af', fontSize: '12px', marginBottom: '20px' }}>Secure connection established.</p>
-                    <Link to="/dashboard" style={{ display: 'block', textAlign: 'center', padding: '14px', borderRadius: '14px', background: 'linear-gradient(135deg, #0ea5e9, #0284c7)', color: '#fff', fontWeight: 800, textDecoration: 'none', fontSize: '12px', letterSpacing: '2px' }}>
-                      ENTER WARD COMMAND
-                    </Link>
-                  </div>
-                </SignedIn>
-              </>
-            )}
           </div>
         </div>
       </section>
