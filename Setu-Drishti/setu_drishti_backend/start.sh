@@ -39,6 +39,7 @@ echo "=================================================="
 # Start the simulator in the FOREGROUND.
 # If the simulator ever dies, this script also exits, which Render will detect
 # and restart the entire service automatically.
+export BACKEND_PREDICT_URL="http://127.0.0.1:${PORT}/api/v1/predict"
 python simulator.py
 
 # If we somehow reach here (simulator exited), keep uvicorn alive
