@@ -1,0 +1,7 @@
+
+# Explicitly Track Core Configs for Team
+!.env
+!.env.local
+!package.json
+!package-lock.json
+!requirements.txt

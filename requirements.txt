@@ -1,0 +1,3 @@
+# Root requirements. See backend subfolders for full dependencies.
+fastapi
+uvicorn

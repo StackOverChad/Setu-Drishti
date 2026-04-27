@@ -1,0 +1,35 @@
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Project folders (each has its own .gitignore, but we ignore cache here)
+__pycache__/
+*.pyc
+
+# Note: The subfolders omnimed-mobile/ and omnimed_backend/ have their own .gitignore files 
+# which strictly handle ignoring node_modules/ and venv/ for those specific projects.
+.venv/
+venv/
+*/venv/
+*/.venv/
+node_modules/
+*/node_modules/
+
+# Explicitly Track Core Configs for Team
+!.env
+!.env.local
+!package.json
+!package-lock.json
+!requirements.txt
+
+# .gitignore
+.env
+firebase-credentials.json
+__pycache__/
+*.db
+venv/
