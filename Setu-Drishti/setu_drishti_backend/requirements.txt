@@ -26,16 +26,16 @@ pandas
 joblib
 
 # Deep Learning - Nidana Vision (Skin Triage CNN)
-torch
-torchvision
-pillow
+# torch
+# torchvision
+# pillow
 
 # NLP - TrialBridge (Clinical Trial Semantic Matching)
-sentence-transformers
-transformers
-tokenizers
-huggingface_hub
-safetensors
+# sentence-transformers
+# transformers
+# tokenizers
+# huggingface_hub
+# safetensors
 
 # Notifications (Setu-Drishti Alerts)
 twilio
