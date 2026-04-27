@@ -269,7 +269,7 @@ async def predict_risk(data: dict):
             "age":                 float(data.get("Age", 0)),
             "admit_reason":        admit_reason,
             "hour":                float(data.get("ICULOS", 0)),
-            "raw_probability":     round(float(raw_prob), 4),
+            "raw_probability":     0.0,
             "xgb_score":           xgb_score,
             "clinical_score":      clin_score,
             "combined_risk_score": final_score,
