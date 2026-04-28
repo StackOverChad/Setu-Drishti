@@ -1,4 +1,4 @@
-# Setu-Drishti × OmniMed — Team StackOverChad
+# Setu-Drishti × OmniMed — Team Alien-X
 
 A unified AI-powered ICU Command Center and Clinical Intelligence Platform built by Team StackOverChad.
 
@@ -249,9 +249,9 @@ All endpoints available at `http://localhost:8000`. Swagger UI at `/docs`.
 
 ---
 
-## 👥 Team — StackOverChad
+## 👥 Team — Alien-X
 
-Built by **Team StackOverChad**.
+Built by **Team Alien-X**.
 
 > *"One Platform. Six Modules. Real-Time ICU Intelligence."*
 
