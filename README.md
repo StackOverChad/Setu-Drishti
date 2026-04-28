@@ -1,6 +1,6 @@
-# Hacknation 2.0 — Team StackOverChad
+# Setu-Drishti × OmniMed — Team StackOverChad
 
-Part of the Setu-Drishti × OmniMed Hacknation 2.0 Repository.
+A unified AI-powered ICU Command Center and Clinical Intelligence Platform built by Team StackOverChad.
 
 ### Private Repo Notice
 This repo is preconfigured so all team members can run it instantly. Internal configuration files, environments (.env), and package structures are explicitly tracked to reduce setup time. Pull the repo and run it immediately!
@@ -251,7 +251,7 @@ All endpoints available at `http://localhost:8000`. Swagger UI at `/docs`.
 
 ## 👥 Team — StackOverChad
 
-Built for **Hacknation 2.0**.
+Built by **Team StackOverChad**.
 
 > *"One Platform. Six Modules. Real-Time ICU Intelligence."*
 

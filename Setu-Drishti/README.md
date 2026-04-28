@@ -303,7 +303,7 @@ All endpoints at `http://localhost:8000`. Full Swagger docs at `/docs`.
 
 ## 👥 Team — StackOverChad
 
-Built with ❤️ for **Hacknation 2.0**.
+Built with ❤️ by **Team StackOverChad**.
 
 > *"One Platform. Six Modules. Real-Time ICU Intelligence."*
 
