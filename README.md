@@ -1,197 +1,88 @@
-# . Module
+# Hacknation 2.0 — Team StackOverChad
 
-Part of the Setu-Drishti x OmniMed Hacknation 2.0 Repository.
+Part of the Setu-Drishti × OmniMed Hacknation 2.0 Repository.
 
 ### Private Repo Notice
 This repo is preconfigured so all team members can run it instantly. Internal configuration files, environments (.env), and package structures are explicitly tracked to reduce setup time. Pull the repo and run it immediately!
 
-# OmniMed — Unified AI Clinical Intelligence Platform
+---
 
-<div align="center">
+# Setu-Drishti 2.0 × OmniMed AI Suite
 
 ```
   ╔═══════════════════════════════════════════════════════════╗
-  ║   O M N I M E D  —  Unified AI Clinical OS               ║
-  ║   Six AI Modules · Offline-First · India-Built            ║
+  ║   SETU-DRISHTI 2.0  ×  OmniMed AI Suite                 ║
+  ║   ICU Command Center · 6 AI Modules · Edge-First         ║
   ╚═══════════════════════════════════════════════════════════╝
 ```
 
-**One Platform. Six AI Modules. Zero Internet Required.**
+**One Platform. Six AI Modules. Real-Time ICU Intelligence.**
 
 [![Python](https://img.shields.io/badge/Python-3.11+-blue?logo=python)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.135-green?logo=fastapi)](https://fastapi.tiangolo.com)
 [![React](https://img.shields.io/badge/React-18.3-61dafb?logo=react)](https://react.dev)
 [![React Native](https://img.shields.io/badge/React_Native-Expo-black?logo=expo)](https://expo.dev)
-[![License](https://img.shields.io/badge/License-MIT-purple)](LICENSE)
-
-</div>
 
 ---
 
-## 📖 Table of Contents
-
-1. [Project Overview](#-project-overview)
-2. [Architecture](#-architecture)
-3. [Six AI Modules](#-six-ai-modules)
-4. [Project Structure](#-project-structure)
-5. [Prerequisites](#-prerequisites)
-6. [Installation & Setup](#-installation--setup)
-   - [Backend (FastAPI)](#1-backend-fastapi)
-   - [Web Dashboard (React + Vite)](#2-web-dashboard-react--vite)
-   - [Mobile App (React Native / Expo)](#3-mobile-app-react-native--expo)
-7. [Running All Services](#-running-all-services)
-8. [Starting the District Simulation](#-starting-the-district-simulation)
-9. [API Reference](#-api-reference)
-10. [Network Configuration (Mobile)](#-network-configuration-mobile)
-11. [Known Issues & Notes](#-known-issues--notes)
-
----
-
-## 🏥 Project Overview
-
-OmniMed is an **offline-first AI health operating system** designed for frontline health workers, rural ASHA workers, and hospital administrators in India. It merges six distinct AI capabilities into a single unified platform that functions **100% offline on edge devices** and synchronises data opportunistically when connectivity is restored.
-
-**Target Users:**
-- 🏥 Physicians & Specialists
-- 👩‍⚕️ ASHA / ANM Frontline Workers
-- 🏛️ District Health Officers
-- 🔬 Clinical Researchers
-
----
-
-## 🏛 Architecture
+## 📁 Repository Structure
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                         LAYER 3: CLOUD                          │
-│         FastAPI Backend · SQLite DB · SentenceTransformers      │
-│              http://0.0.0.0:8000                                │
-└───────────────────────────┬─────────────────────────────────────┘
-                            │ Opportunistic HTTP/2 Sync
-┌───────────────────────────▼─────────────────────────────────────┐
-│                      LAYER 2: SYNC                              │
-│        Compressed JSON Payloads · FHIR R4 Structured Data       │
-│        Bluetooth LE · Wi-Fi (same subnet)                       │
-└───────────────────────────┬─────────────────────────────────────┘
-                            │ On-Device Inference
-┌───────────────────────────▼─────────────────────────────────────┐
-│                      LAYER 1: EDGE                              │
-│    React Native Mobile App · ONNX/TFLite · SQLite + AES-256     │
-│    100% Offline Capable · npx expo start --dev-client           │
-└─────────────────────────────────────────────────────────────────┘
+hacknation-2.0/
+│
+└── Setu-Drishti/                  ← ⭐ MAIN PROJECT FOLDER (everything is here)
+    ├── setu_drishti_backend/      ← FastAPI backend + all AI models
+    │   ├── main.py                ← App entry point
+    │   ├── simulator.py           ← ICU patient data simulator
+    │   ├── requirements.txt       ← Python dependencies
+    │   └── routers/               ← All API route handlers
+    │
+    ├── setu_drishti_web/          ← React + Vite web dashboard
+    │   ├── src/                   ← React source code
+    │   └── package.json
+    │
+    └── SetuDrishtiApp/            ← React Native (Expo) mobile app
+        ├── app/                   ← Expo Router screens
+        ├── components/            ← Shared components
+        ├── services/              ← API service layer
+        └── package.json
 ```
 
-**Web Dashboard** is served by the backend at `http://localhost:8000/web/` (production build) or directly via Vite dev server at `http://localhost:3000/web/`.
-
----
-
-## 🤖 Six AI Modules
-
-| # | Module | Tech Stack | Capability |
-|---|--------|-----------|------------|
-| 1 | **ToneScore Triage** | Sentiment NLP + openSMILE | Analyzes vocal acoustics & transcript sentiment → composite urgency score |
-| 2 | **Nidana Vision+** | MobileNetV2 CNN (PyTorch) | Skin lesion classification, anemia detection from smartphone camera |
-| 3 | **TrialBridge** | SentenceTransformers (all-MiniLM-L6-v2) | Semantic vector matching of patient profile to clinical trials database |
-| 4 | **SentinelIQ** | Isolation Forest (scikit-learn) | Unsupervised EHR anomaly detection — flags fraud without labelled data |
-| 5 | **PulseWatch** | LSTM Autoencoder + BLE GATT | Wearable RPM: detects vitals deterioration 6-12h before clinical signs |
-| 6 | **ScribeFlow+** | Whisper-small + spaCy NER | Ambient clinical scribe: transcribes, extracts ICD-10 codes, fills EHR |
-
----
-
-## 📁 Project Structure
-
-```
-Hacknation Shivalik Hackathon ACM/
-│
-├── README.md                          ← This file (root overview)
-│
-├── omnimed_backend/                   ← FastAPI Python Backend
-│   ├── main.py                        ← App entry point, router registration, static serving
-│   ├── database.py                    ← SQLAlchemy models + SQLite setup
-│   ├── requirements.txt               ← All Python dependencies (pinned)
-│   ├── simulate_district_nodes.py     ← Crisis simulation script (25 edge nodes)
-│   ├── ml_models/
-│   │   ├── sentineliq_isolation_forest.joblib  ← Pre-trained IsolationForest
-│   │   └── sentineliq_label_encoder.joblib     ← Role label encoder
-│   └── routers/
-│       ├── nidana_vision.py           ← POST /api/v1/analyze_image
-│       ├── trial_bridge.py            ← POST /api/v1/trials/match
-│       ├── security.py                ← POST /api/v1/security/audit
-│       ├── sync_layer.py              ← POST /api/v1/sync
-│       ├── voice_triage.py            ← POST /api/v1/voice/analyze_tone
-│       └── population_pulse.py        ← GET  /api/v1/population/dashboard
-│
-├── omnimed-web/                       ← React + Vite Web Dashboard
-│   ├── index.html                     ← HTML entry point
-│   ├── vite.config.js                 ← Vite config (base: /web/, proxy: :8000)
-│   ├── package.json                   ← Node deps (React 18, Vite 5)
-│   ├── src/
-│   │   ├── main.jsx                   ← React root, imports CSS
-│   │   ├── App.jsx                    ← Root component, page routing, state
-│   │   ├── styles/main.css            ← Full design system (dark/light themes)
-│   │   ├── services/api.js            ← All fetch() calls to FastAPI
-│   │   ├── hooks/useApp.js            ← useTheme, useBackendStatus, useToast, etc.
-│   │   ├── components/
-│   │   │   ├── Landing.jsx            ← Landing page with module cards
-│   │   │   ├── Sidebar.jsx            ← Navigation + backend status
-│   │   │   ├── Toast.jsx              ← Toast notification system
-│   │   │   └── Loader.jsx             ← Global loading overlay
-│   │   └── modules/
-│   │       ├── Dashboard.jsx          ← Stats, patient list, audit log
-│   │       ├── Triage.jsx             ← ToneScore urgency gauge
-│   │       ├── Nidana.jsx             ← Drag-and-drop skin image analysis
-│   │       ├── TrialBridge.jsx        ← Clinical trial matching UI
-│   │       ├── SentinelIQ.jsx         ← EHR audit with Isolation Forest
-│   │       └── Sync.jsx               ← Offline patient sync
-│   └── styles/main.css                ← Original CSS (also copied to src/styles/)
-│
-└── omnimed-mobile/                    ← React Native (Expo) Mobile App
-    ├── app/
-    │   ├── index.tsx                  ← Landing screen
-    │   ├── dashboard.tsx              ← Main dashboard
-    │   ├── triage.tsx                 ← ToneScore (voice analysis)
-    │   ├── nidana.tsx                 ← Nidana Vision (camera + image)
-    │   ├── trialbridge.tsx            ← Trial matching interface
-    │   ├── sentineliq.tsx             ← EHR security audit
-    │   └── district.tsx               ← PopulationPulse district map
-    ├── components/
-    │   ├── ToneScore.tsx              ← Voice emotional triage component
-    │   └── TrialBridge.tsx            ← Trial matching component
-    ├── services/
-    │   ├── OfflineSync.ts             ← Sync offline data → backend (IP config here)
-    │   └── ModelRunner.ts             ← On-device model inference (IP config here)
-    └── package.json
-```
+> **Note:** All commands below must be run from inside the `Setu-Drishti/` folder.
 
 ---
 
 ## ✅ Prerequisites
-
-Ensure the following are installed on your machine:
 
 | Tool | Version | Purpose |
 |------|---------|---------|
 | Python | 3.11+ | Backend FastAPI server |
 | Node.js | 18+ | Web dashboard (Vite) & Mobile (Expo) |
 | npm | 9+ | Package management |
-| Expo CLI | Latest | Running the mobile app |
 | Git | Any | Version control |
 
 **Hardware:**
-- Android/iOS physical device (for mobile app via Expo Go or dev client)
+- Android/iOS physical device (for mobile app via Expo Go)
 - PC and phone must be on the **same Wi-Fi network** for mobile ↔ backend communication
 
 ---
 
-## ⚙️ Installation & Setup
+## ⚙️ First-Time Setup
 
-### 1. Backend (FastAPI)
+### Step 1 — Navigate to the project
 
 ```bash
-# Navigate to the backend folder
-cd omnimed_backend
+cd Setu-Drishti
+```
 
-# Create a Python virtual environment
+> ⚠️ **All subsequent commands must be run from inside `Setu-Drishti/`**
+
+### Step 2 — Set up the Python virtual environment (Backend)
+
+```bash
+cd setu_drishti_backend
+
+# Create virtual environment
 python -m venv venv
 
 # Activate it
@@ -200,258 +91,151 @@ venv\Scripts\activate
 # Mac/Linux:
 source venv/bin/activate
 
-# Install all dependencies
+# Install dependencies
 pip install -r requirements.txt
+
+# Go back to Setu-Drishti root
+cd ..
 ```
 
-> ⚠️ **Important:** The `torch` and `sentence-transformers` packages are large (~2-3 GB). Installation may take several minutes depending on your internet speed.
-
----
-
-### 2. Web Dashboard (React + Vite)
+### Step 3 — Install Web Dashboard dependencies
 
 ```bash
-# Navigate to the web folder
-cd omnimed-web
-
-# Install Node dependencies
+cd setu_drishti_web
 npm install
+cd ..
 ```
 
-No further configuration needed — the Vite dev server proxies API calls to `localhost:8000` automatically.
-
----
-
-### 3. Mobile App (React Native / Expo)
+### Step 4 — Install Mobile App dependencies
 
 ```bash
-# Navigate to the mobile folder
-cd omnimed-mobile
-
-# Install Node dependencies
+cd SetuDrishtiApp
 npm install
-
-# Install Expo CLI globally (if not already installed)
-npm install -g expo-cli
-```
-
-**Critical — Update the backend IP:**
-
-Before running the mobile app, set your PC's local IP address (from the same Wi-Fi the phone is on) in **all** these files:
-
-| File | Variable to Update |
-|------|--------------------|
-| `services/OfflineSync.ts` | `const BACKEND_URL = "http://<YOUR_PC_IP>:8000"` |
-| `services/ModelRunner.ts` | `const BACKEND_URL = "http://<YOUR_PC_IP>:8000"` |
-| `components/ToneScore.tsx` | `const BACKEND_URL = "http://<YOUR_PC_IP>:8000"` |
-| `components/TrialBridge.tsx` | `const BACKEND_URL = "http://<YOUR_PC_IP>:8000"` |
-| `app/district.tsx` | `const BACKEND_URL = "http://<YOUR_PC_IP>:8000"` |
-
-**Find your PC's IP:**
-```powershell
-# Windows
-ipconfig
-# Look for "IPv4 Address" under your Wi-Fi adapter, e.g., 10.110.123.227
-
-# Mac/Linux
-ifconfig | grep "inet "
+cd ..
 ```
 
 ---
 
-## 🚀 Running All Services
+## 🚀 Running the Full Stack (4 Terminals)
 
-You need **3 separate terminals** running simultaneously:
+Start from the `Setu-Drishti/` folder in **4 separate terminals**.
 
-### Terminal 1 — Backend (FastAPI + All AI Models)
+---
+
+### 🖥️ Terminal 1 — Backend API (FastAPI)
 
 ```bash
-cd omnimed_backend
+# From Setu-Drishti/
+cd setu_drishti_backend
 venv\Scripts\activate          # Windows
 # source venv/bin/activate     # Mac/Linux
 
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-**Expected startup output:**
-```
-⏳ Booting up TrialBridge NLP Semantic vectors...
-✅ NLP Semantic Engine Online.
-✅ PyTorch MobileNetV2 successfully injected into FastAPI Engine!
-INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-```
-
-**Backend API is live at:** `http://localhost:8000`  
-**Interactive API docs:** `http://localhost:8000/docs`  
-**Web dashboard (prod build):** `http://localhost:8000/web/`
+✅ **Backend live at:** `http://localhost:8000`  
+✅ **API Docs at:** `http://localhost:8000/docs`
 
 ---
 
-### Terminal 2 — Web Dashboard (Development Mode with Hot Reload)
+### 📡 Terminal 2 — ICU Patient Simulator
+
+> **Important:** Start this AFTER the backend is running.
 
 ```bash
-cd omnimed-web
-npm run dev
-```
-
-**Expected output:**
-```
-VITE v5.4.x  ready in 588 ms
-➜  Local:   http://localhost:3000/web/
-```
-
-**Web Dashboard is live at:** `http://localhost:3000/web/`
-
-> **Note:** In development, use port 3000 for hot-reload. For production via FastAPI, run `npm run build` inside `omnimed-web/` and restart the backend — it will then serve from `http://localhost:8000/web/`.
-
-#### Building for Production
-
-```bash
-cd omnimed-web
-npm run build
-# The output goes to omnimed-web/dist/
-# FastAPI automatically serves this at http://localhost:8000/web/
-```
-
----
-
-### Terminal 3 — Mobile App (Expo)
-
-```bash
-cd omnimed-mobile
-npx expo start --dev-client -c
-```
-
-Scan the QR code in the Expo terminal with:
-- **Android:** Expo Go app → Scan QR
-- **iOS:** Camera app → Scan QR
-
----
-
-## 🏙️ Starting the District Simulation
-
-The **PopulationPulse** simulation script emulates 25 frontline health workers syncing patient data simultaneously from different villages and blocks. This populates the district dashboard with live, realistic data.
-
-### Prerequisites
-- Backend must be running on port 8000 before you start the simulation
-
-### Steps
-
-```bash
-# In a NEW terminal (4th terminal):
-cd omnimed_backend
-
-# Activate the virtual environment
+# From Setu-Drishti/
+cd setu_drishti_backend
 venv\Scripts\activate          # Windows
 # source venv/bin/activate     # Mac/Linux
 
-# Run the simulation
-python simulate_district_nodes.py
+python simulator.py
 ```
 
-### Expected Output
+This continuously feeds live patient vitals (HR, MAP, SpO₂, Lactate, etc.) into the backend. The web and mobile dashboards will display these in real time.
 
-```
-=========================================
-[START] OmniMed Edge Node Crisis Simulator
-=========================================
-Simulating 25 frontline health workers actively syncing data from the field...
-[Sync OK] Synced P-6489 from Village B | Tags: rash, chronic fatigue, cough
-[Sync OK] Synced P-2938 from Village B | Tags: cough
-[Sync OK] Synced P-9505 from Village A | Tags: cough, chronic fatigue
-...
-[Sync OK] Synced P-8385 from Sector 4  | Tags: rash, fever, anemia
-=========================================
-[DONE] Simulation complete — 25 patient records synced.
-=========================================
+---
+
+### 🌐 Terminal 3 — Web Dashboard (React + Vite)
+
+```bash
+# From Setu-Drishti/
+cd setu_drishti_web
+npm run dev
 ```
 
-After the script completes, open the **District Dashboard** in the mobile app or visit `http://localhost:8000/api/v1/population/dashboard` to see the aggregated health intelligence data update in real time.
+✅ **Web Dashboard live at:** `http://localhost:5173`
+
+---
+
+### 📱 Terminal 4 — Mobile App (Expo)
+
+```bash
+# From Setu-Drishti/
+cd SetuDrishtiApp
+npx expo start -c
+```
+
+Scan the QR code with the **Expo Go** app on your phone, or press:
+- `a` → Android Emulator
+- `i` → iOS Simulator
+
+---
+
+## 🌐 Network Configuration (Mobile ↔ Backend)
+
+The mobile app needs your PC's local IP address to talk to the backend over Wi-Fi.
+
+**Find your IP:**
+```powershell
+# Windows
+ipconfig
+# Look for "IPv4 Address" under your Wi-Fi adapter
+```
+
+**Quick IP update script (PowerShell — run from `Setu-Drishti/`):**
+```powershell
+$newIP = "YOUR_NEW_IP_HERE"   # e.g., 10.216.18.227
+$files = @(
+    "SetuDrishtiApp\app\(tabs)\index.tsx",
+    "SetuDrishtiApp\app\(tabs)\ar-lens.tsx",
+    "SetuDrishtiApp\app\omnimed-district.tsx",
+    "SetuDrishtiApp\services\ModelRunner.ts",
+    "SetuDrishtiApp\components\ToneScore.tsx",
+    "SetuDrishtiApp\components\TrialBridge.tsx"
+)
+foreach ($f in $files) {
+    (Get-Content $f) -replace '10\.\d+\.\d+\.\d+', $newIP | Set-Content $f -Encoding UTF8
+}
+Write-Host "All IPs updated to $newIP"
+```
+
+---
+
+## ☁️ Cloud Deployment (Live URLs)
+
+| Service | Platform | URL |
+|---------|----------|-----|
+| Backend API | Render | https://setu-drishti.onrender.com |
+| Web Dashboard | Vercel | *(your Vercel URL)* |
+
+> **Free-tier note:** The Render backend sleeps after 15 min of inactivity. Open the Vercel site ~1 minute before presenting to wake it up.
 
 ---
 
 ## 📡 API Reference
 
-All endpoints are available at `http://localhost:8000`. Interactive Swagger UI at `/docs`.
+All endpoints available at `http://localhost:8000`. Swagger UI at `/docs`.
 
-| Method | Endpoint | Module | Description |
-|--------|----------|--------|-------------|
-| `GET` | `/` | Health | Backend health check & version |
-| `POST` | `/api/v1/voice/analyze_tone` | ToneScore | Analyze vocal transcript → urgency score |
-| `POST` | `/api/v1/analyze_image` | Nidana Vision | Base64 skin image → CNN diagnosis |
-| `POST` | `/api/v1/trials/match` | TrialBridge | Patient symptoms → matched clinical trials |
-| `POST` | `/api/v1/security/audit` | SentinelIQ | EHR access log → anomaly detection |
-| `POST` | `/api/v1/sync` | Sync Layer | Push offline patient record to cloud DB |
-| `GET` | `/api/v1/population/dashboard` | PopulationPulse | District-level aggregated health data |
-| `GET` | `/web/` | Web Dashboard | Serves the React web app |
-
-### Example: ToneScore Request
-
-```bash
-curl -X POST http://localhost:8000/api/v1/voice/analyze_tone \
-  -H "Content-Type: application/json" \
-  -d '{"audio_base64": "", "transcribed_text": "severe chest pain, I cant breathe"}'
-```
-
-**Response:**
-```json
-{
-  "analyzed_transcript": "severe chest pain, I cant breathe",
-  "acoustic_urgency_score": 94.7,
-  "detected_emotions": ["Distress", "Fear", "High Pain"],
-  "triage_color": "RED",
-  "recommendation": "CRITICAL: Immediate Nurse Dispatch Required!"
-}
-```
-
-### Example: TrialBridge Request
-
-```bash
-curl -X POST http://localhost:8000/api/v1/trials/match \
-  -H "Content-Type: application/json" \
-  -d '{"medical_text": "severe iron deficiency anemia, hemoglobin 7.2 g/dL, extreme fatigue"}'
-```
-
-**Response:**
-```json
-{
-  "analyzed_symptoms": "severe iron deficiency anemia...",
-  "total_active_trials_scanned": 4,
-  "matches": [
-    {
-      "trial_id": "NCT012345",
-      "condition": "Severe Anemia",
-      "confidence_score": 78.4,
-      "match_reason": "High semantic overlap with symptoms"
-    }
-  ]
-}
-```
-
----
-
-## 🌐 Network Configuration (Mobile)
-
-The mobile app communicates with the FastAPI backend over your local Wi-Fi. **The IP address must be updated every time your network changes.**
-
-### Quick Fix Script (Windows PowerShell)
-
-If your IP changes, run this to update all files at once:
-
-```powershell
-$newIP = "YOUR_NEW_IP_HERE"  # e.g., 10.110.123.227
-$files = @(
-  "omnimed-mobile\services\OfflineSync.ts",
-  "omnimed-mobile\services\ModelRunner.ts",
-  "omnimed-mobile\components\ToneScore.tsx",
-  "omnimed-mobile\components\TrialBridge.tsx",
-  "omnimed-mobile\app\district.tsx"
-)
-foreach ($f in $files) {
-  (Get-Content $f) -replace '10\.\d+\.\d+\.\d+', $newIP | Set-Content $f -Encoding UTF8
-}
-Write-Host "All IPs updated to $newIP"
-```
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET`  | `/` | Health check |
+| `POST` | `/api/v1/predict` | ICU patient risk prediction |
+| `POST` | `/api/v1/voice/analyze_tone` | ToneScore voice triage |
+| `POST` | `/api/v1/analyze_image` | Nidana Vision skin scan |
+| `POST` | `/api/v1/trials/match` | TrialBridge clinical trial matching |
+| `POST` | `/api/v1/security/audit` | SentinelIQ anomaly detection |
+| `GET`  | `/api/v1/population/dashboard` | District health pulse |
+| `POST` | `/api/v1/sync` | Offline patient sync |
 
 ---
 
@@ -459,37 +243,18 @@ Write-Host "All IPs updated to $newIP"
 
 | Issue | Status | Workaround |
 |-------|--------|------------|
-| `InconsistentVersionWarning` for scikit-learn | Non-breaking | Models trained on v1.6.1, running on v1.8.0. Safe to ignore. |
-| `X does not have valid feature names` warning | Non-breaking | SentinelIQ feature input format — safe to ignore. |
-| Mobile connectivity after IP change | Expected | Re-run the IP update script above. |
-| Vite backend proxy only in dev mode | By design | Use `npm run build` for production via FastAPI. |
-| HuggingFace unauthenticated rate limit | Non-blocking | Set `HF_TOKEN` env var to increase limits. |
-
----
-
-## 🛠️ Tech Stack Summary
-
-| Layer | Technology | Version |
-|-------|-----------|---------|
-| Backend API | FastAPI | 0.135.3 |
-| ASGI Server | Uvicorn | 0.44.0 |
-| Database ORM | SQLAlchemy | 2.0.49 |
-| Database | SQLite | Bundled |
-| CV Model | PyTorch MobileNetV2 | torch 2.11.0 |
-| NLP Model | SentenceTransformers (MiniLM) | 5.4.0 |
-| Anomaly Detection | scikit-learn IsolationForest | 1.8.0 |
-| Web Framework | React + Vite | 18.3.1 + 5.4.x |
-| Mobile Framework | React Native (Expo) | Latest |
-| Styling | Vanilla CSS (design tokens) | — |
+| `InconsistentVersionWarning` for scikit-learn | Non-breaking | Safe to ignore |
+| Mobile connectivity after IP change | Expected | Re-run the IP update script above |
+| Render backend cold start (~30s) | Free-tier limitation | Open site 1 min before demo |
 
 ---
 
 ## 👥 Team — StackOverChad
 
-Built for the **Hacknation Shivalik Hackathon** by ACM Chapter.
+Built for **Hacknation 2.0**.
 
-> *"One Platform. Six Modules. Zero Internet Required."*
+> *"One Platform. Six Modules. Real-Time ICU Intelligence."*
 
 ---
 
-*© 2026 OmniMed. Hackathon Build. All rights reserved.*
+*© 2026 Setu-Drishti × OmniMed. All rights reserved.*
